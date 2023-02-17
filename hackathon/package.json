@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "docx-tables": "^0.2.0",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "groupdocs-editor-cloud": "^22.5.0",
+    "hbs": "^4.2.0",
+    "mammoth": "^1.5.1",
+    "mongodb": "^5.0.1",
+    "path": "^0.12.7",
+    "pizzip": "^3.1.4",
+    "replace": "^1.2.2",
+    "replace-in-file": "^6.3.5",
+    "word-extractor": "^1.0.4"
+  },
+  "name": "hackathon",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,31 @@
+<div>
+    <form *ngIf="filterForm" [formGroup]="filterForm" class="filter-form" (ngSubmit)="onSubmit($event)">
+        <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: filterFields,formGroup:filterForm }">
+        </ng-container>
+        <button class="button" type="submit">Submit</button>
+    </form>
+
+    <ng-template #recursiveList let-filterFields let-formGroup="formGroup">
+        <div class="form-group">
+            <ng-container *ngFor="let item of filterFields">
+                <p>{{item.title}}</p>
+                <ng-container *ngIf="item.group; else default;">
+                    <div class="row pb-4">
+                        <div [formGroup]="formGroup.get(item.key)">
+                            <ng-container
+                                *ngTemplateOutlet="recursiveList; context:{ $implicit: item.group, formGroup: formGroup.get( item.key)}">
+                            </ng-container>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #default>
+                    <div class="col-md-3">
+                        <input [formControl]="formGroup.get(item.key)" [placeholder]="item.title"
+                            [name]="item.key" />
+                    </div>
+                </ng-template>
+            </ng-container>
+        </div>
+    </ng-template>
+    <pre>{{filterForm.value|json}}</pre>
+</div>
